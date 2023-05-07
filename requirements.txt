@@ -1,0 +1,6 @@
+googletrans==3.1.0a0
+pdfminer.six==20221105
+tqdm==4.65.0
+openai==0.27.6
+langchain==0.0.158
+deepl==1.14.0
