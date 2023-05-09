@@ -9,6 +9,7 @@ import translate
 import read_pdf
 
 import gpt3_summary
+import shutil
 
 
 config_ini = configparser.ConfigParser()
@@ -23,8 +24,15 @@ is_trans = bool(int(config_ini["mode"]["trans"]))
 is_deepl = bool(int(config_ini["mode"]["deepl"]))
 
 os.makedirs("output", exist_ok=True)
+if os.path.exists("output"):
+    shutil.rmtree("output")
+    os.makedirs("output", exist_ok=True)
+
 if is_summary:
     os.makedirs("summary", exist_ok=True)
+    if os.path.exists("summary"):
+        shutil.rmtree("summary")
+        os.makedirs("summary", exist_ok=True)
 
 if is_trans:
     if is_deepl:
